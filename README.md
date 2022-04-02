@@ -14,3 +14,11 @@
 ### To Check feedback
 
 Click on the `Pull Requests` tab at the top of this page, and select the `feedback` pull request. Scroll down to see the feedback. **NOTE:** Do not merge or close this PR.
+
+
+### Sources
+
+https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360
+https://assetstore.unity.com/packages/2d/environments/platform-tile-pack-204101
+https://assetstore.unity.com/packages/2d/characters/knight-sprite-sheet-free-93897
+https://freesound.org/people/Alexamin/sounds/547126/
