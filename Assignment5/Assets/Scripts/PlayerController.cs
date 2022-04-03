@@ -195,6 +195,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     private void KillPlayer(){
-
+        _animator.SetTrigger("Dead");
+        Debug.Log("Dead");
     }
 }
