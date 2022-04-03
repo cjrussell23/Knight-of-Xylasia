@@ -6,6 +6,7 @@ public class BackgroundParallax : MonoBehaviour
 {
     private float length;
     private float startpos;
+    private float offset = 10;
     [SerializeField] private GameObject _camera;
     [SerializeField] private float _parallaxEffect;
     void Start()
@@ -15,7 +16,7 @@ public class BackgroundParallax : MonoBehaviour
     }
     void Update()
     {
-        float temp = _camera.transform.position.x * (1- _parallaxEffect);
+        float temp = (_camera.transform.position.x + offset) * (1- _parallaxEffect);
         float distance = _camera.transform.position.x * _parallaxEffect;
         transform.position = new Vector3(startpos + distance, transform.position.y, transform.position.z);
         if (temp > startpos + length) startpos += length;
