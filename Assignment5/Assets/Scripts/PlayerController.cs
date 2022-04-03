@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         _manaSlider.value += _manaRegen;
     }
     void Update()
-    {      
+    {
         if (!_gameOver && !_inputLock)
         {
             if (_isGrounded && Input.GetButton("Sprint") && _manaSlider.value > _sprintMana)
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
                 _speed = DEFAULTSPEED;
             }
             float deltaX = Input.GetAxis("Horizontal") * _speed;
-            Vector2 movement = new Vector2(deltaX, _rb.velocity.y);       
+            Vector2 movement = new Vector2(deltaX, _rb.velocity.y);
             _animator.SetFloat("speed", Mathf.Abs(deltaX));
             if (Input.GetButtonDown("Attack0"))
             {
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
             {
                 Attack2();
             }
-            
+
             else
             {
                 _rb.velocity = movement;
@@ -92,13 +92,14 @@ public class PlayerController : MonoBehaviour
             if (_jumps == 2 && Input.GetButtonDown("Jump"))
             {
                 _audioSource.PlayOneShot(_jumpAudio);
-                Jump();       
+                Jump();
             }
             // Second jump requires mana
-            else if (_jumps == 1 && Input.GetButtonDown("Jump") && _manaSlider.value > _jumpMana){
+            else if (_jumps == 1 && Input.GetButtonDown("Jump") && _manaSlider.value > _jumpMana)
+            {
                 _audioSource.PlayOneShot(_secondJumpAudio);
-                _manaSlider.value -= _jumpMana;             
-                Jump();  
+                _manaSlider.value -= _jumpMana;
+                Jump();
             }
         }
         // Game over
@@ -113,7 +114,7 @@ public class PlayerController : MonoBehaviour
         {
             _isGrounded = false;
         }
-        
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -160,7 +161,7 @@ public class PlayerController : MonoBehaviour
         // Stop horizontal movement during attack
         Invoke(nameof(ShootFireBall), .5f);
         Invoke(nameof(StopInputLock), 1f);
-        
+
     }
     public void DamagePlayer(float damage)
     {
@@ -172,5 +173,28 @@ public class PlayerController : MonoBehaviour
         Vector2 pos = transform.position;
         GameObject fireball = Instantiate(_fireballPrefab, pos + new Vector2(0, -1), Quaternion.identity);
         fireball.transform.GetComponent<fireball>().Shoot(transform.localScale.x);
+    }
+    public IEnumerator DamagePlayer(int damage, float interval)
+    {
+        while (true)
+        {
+            _healthSlider.value -= damage;
+            if (_healthSlider.value <= float.Epsilon)
+            {
+                KillPlayer();
+                break;
+            }
+            if (interval > float.Epsilon)
+            {
+                yield return new WaitForSeconds(interval);
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+    private void KillPlayer(){
+
     }
 }
