@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _fireballPrefab;
     [SerializeField] private GameObject _shieldPrefab;
     [SerializeField] private GameObject _attack0Prefab;
+    [SerializeField] private GameObject _attack1Prefab;
     [SerializeField] private Slider _healthSlider;
     [SerializeField] private Slider _manaSlider;
     [SerializeField] private float _attack1Mana = 5;
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip _blockAudio;
     private GameObject _shield;
     private GameObject _attack0;
+    private GameObject _attack1;
 
     void Start()
     {
@@ -63,7 +65,7 @@ public class PlayerController : MonoBehaviour
                 {
                     _audioSource.PlayOneShot(_blockAudio);
                     Vector3 shieldpos = new Vector3(transform.localScale.x, -1, 0);
-                    _shield = Instantiate(_shieldPrefab, transform.position + shieldpos, Quaternion.Euler( new Vector3(0, 0, 20f * transform.localScale.x)));
+                    _shield = Instantiate(_shieldPrefab, transform.position + shieldpos, Quaternion.Euler(new Vector3(0, 0, 20f * transform.localScale.x)));
                     _animator.SetBool("block", true);
                     Invoke(nameof(StopBlock), 0.5f);
                 }
@@ -145,12 +147,19 @@ public class PlayerController : MonoBehaviour
     {
         _inputLock = false;
     }
-    private void StopBlock(){
+    private void StopBlock()
+    {
         Destroy(_shield);
         _animator.SetBool("block", false);
     }
-    private void StopAttack0(){
+    private void StopAttack0()
+    {
         Destroy(_attack0);
+        StopInputLock();
+    }
+    private void StopAttack1()
+    {
+        Destroy(_attack1);
         StopInputLock();
     }
     private void Jump()
@@ -171,13 +180,17 @@ public class PlayerController : MonoBehaviour
     }
     private void Attack1()
     {
+        _attack1 = Instantiate(_attack1Prefab, transform.position + new Vector3(transform.localScale.x * 1f, -1f, 0), Quaternion.identity);
         _audioSource.PlayOneShot(_attack1Audio);
         _inputLock = true;
         _manaSlider.value -= _attack1Mana;
         _animator.SetTrigger("attack1");
         // Thrust player forward during attack
-        _rb.velocity = new Vector2(Mathf.Sign(_rb.velocity.x) * _speed * 1.5f, _rb.velocity.y);
-        Invoke(nameof(StopInputLock), .5f);
+        Vector2 velocity = new Vector2(transform.localScale.x * _speed * 1.5f, _rb.velocity.y);
+        _rb.velocity = velocity;
+        AttackOne attack = _attack1.GetComponent<AttackOne>();
+        attack.move(velocity);
+        Invoke(nameof(StopAttack1), .5f);
     }
     private void Attack2()
     {

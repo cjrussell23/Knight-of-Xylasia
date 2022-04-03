@@ -6,14 +6,16 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Shield
+  - Weapon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Weapons
   - 
   - 
   - 
