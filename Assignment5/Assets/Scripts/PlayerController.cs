@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip _attack2Audio;
     [SerializeField] private AudioClip _jumpAudio;
     [SerializeField] private AudioClip _secondJumpAudio;
+    [SerializeField] private AudioClip _hurtAudio;
+    [SerializeField] private AudioClip _deathAudio;
 
     void Start()
     {
@@ -178,7 +180,11 @@ public class PlayerController : MonoBehaviour
     {
         while (true)
         {
+            GetComponent<SpriteRenderer>().color = Color.red;
+            _audioSource.PlayOneShot(_hurtAudio);
+            _animator.SetTrigger("hurt");
             _healthSlider.value -= damage;
+            Invoke(nameof(ChangeColor), 0.167f);
             if (_healthSlider.value <= float.Epsilon)
             {
                 KillPlayer();
@@ -195,7 +201,11 @@ public class PlayerController : MonoBehaviour
         }
     }
     private void KillPlayer(){
-        _animator.SetTrigger("Dead");
+        _audioSource.PlayOneShot(_deathAudio);
+        _animator.SetBool("alive", false);
         Debug.Log("Dead");
+    }
+    private void ChangeColor(){
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 }
