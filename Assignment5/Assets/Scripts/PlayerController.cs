@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private float _speed;
     private float DEFAULTSPEED = 4.5f;
     private float _jumpForce;
-    [SerializeField] private float DEFAULTJUMPFORCE = 12f;
+    [SerializeField] private float DEFAULTJUMPFORCE = 16f;
     private bool _isGrounded;
     private int _jumps;
     private bool _invulnerable;
@@ -25,10 +25,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _attack2Mana = 10;
     [SerializeField] private float _sprintMana = 0.01f;
     [SerializeField] private float _manaRegen = 0.05f;
+    [SerializeField] private float _jumpMana = 5f;
     [SerializeField] private AudioClip _attack0Audio;
     [SerializeField] private AudioClip _attack1Audio;
     [SerializeField] private AudioClip _attack2Audio;
     [SerializeField] private AudioClip _jumpAudio;
+    [SerializeField] private AudioClip _secondJumpAudio;
 
     void Start()
     {
@@ -86,12 +88,20 @@ public class PlayerController : MonoBehaviour
             {
                 _jumps = 2;
             }
-            // Jump
-            if (_jumps > 1 && Input.GetButtonDown("Jump"))
+            // First Jump
+            if (_jumps == 2 && Input.GetButtonDown("Jump"))
             {
+                _audioSource.PlayOneShot(_jumpAudio);
                 Jump();       
             }
+            // Second jump requires mana
+            else if (_jumps == 1 && Input.GetButtonDown("Jump") && _manaSlider.value > _jumpMana){
+                _audioSource.PlayOneShot(_secondJumpAudio);
+                _manaSlider.value -= _jumpMana;             
+                Jump();  
+            }
         }
+        // Game over
         else
         {
             _animator.SetFloat("speed", 0);
@@ -120,7 +130,6 @@ public class PlayerController : MonoBehaviour
     {
         _jumps--;
         _animator.SetTrigger("jump");
-        _audioSource.PlayOneShot(_jumpAudio);
         _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
     }
     private void Attack0()

@@ -22,3 +22,5 @@ https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360
 https://assetstore.unity.com/packages/2d/environments/platform-tile-pack-204101
 https://assetstore.unity.com/packages/2d/characters/knight-sprite-sheet-free-93897
 https://freesound.org/people/Alexamin/sounds/547126/
+https://assetstore.unity.com/packages/audio/sound-fx/voices/voices-essentials-214441#content
+https://freesound.org/people/Timbre/sounds/131263/

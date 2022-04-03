@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Assignment5",
+    "\\Assignment5\\Assets",
+    "\\Assignment5\\Assets\\Scripts"
   ],
-  "SelectedNode": "\\Assignment5.sln",
+  "SelectedNode": "\\Assignment5\\Assets\\Scripts\\SoundManager.cs",
   "PreviewInSolutionExplorer": false
 }
