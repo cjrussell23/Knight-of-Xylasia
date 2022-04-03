@@ -26,6 +26,7 @@ public class fireball : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            transform.position = collision.gameObject.transform.position;
             Debug.Log("hit");
             _soundManager.Explosion();
             _rb.velocity = Vector3.zero;
