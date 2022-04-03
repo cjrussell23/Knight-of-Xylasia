@@ -1,20 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    private float _hitPoints;
     [SerializeField] protected float _startingHitPoints = 5;
     [SerializeField] private int _damageStrength;
+    [SerializeField] private Slider _healthSlider;
     private Coroutine _damageCoroutine;
+    private void Awake() {
+        _healthSlider.maxValue = _startingHitPoints;
+    }
     public IEnumerator DamageEnemy(int damage, float interval)
     {
         while (true)
         {
             StartCoroutine(FlickerEnemy());
-            _hitPoints = _hitPoints - damage;
-            if (_hitPoints <= float.Epsilon)
+            _healthSlider.value -= damage;
+            if (_healthSlider.value <= float.Epsilon)
             {
                 KillEnemy();
                 break;
@@ -41,7 +45,7 @@ public class Enemy : MonoBehaviour
     }
     public void ResetEnemy()
     {
-        _hitPoints = _startingHitPoints;
+        _healthSlider.value = _startingHitPoints;
     }
     private void OnEnable()
     {
@@ -49,7 +53,7 @@ public class Enemy : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.tag.Equals("Player"))
         {
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
             if (_damageCoroutine == null)

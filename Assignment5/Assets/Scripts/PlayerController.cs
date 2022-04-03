@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private bool _inputLock;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private GameObject _fireballPrefab;
+    [SerializeField] private GameObject _shieldPrefab;
+    [SerializeField] private GameObject _attack0Prefab;
     [SerializeField] private Slider _healthSlider;
     [SerializeField] private Slider _manaSlider;
     [SerializeField] private float _attack1Mana = 5;
@@ -33,6 +35,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip _secondJumpAudio;
     [SerializeField] private AudioClip _hurtAudio;
     [SerializeField] private AudioClip _deathAudio;
+    [SerializeField] private AudioClip _blockAudio;
+    private GameObject _shield;
+    private GameObject _attack0;
 
     void Start()
     {
@@ -50,58 +55,69 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        if (!_gameOver && !_inputLock)
+        if (!_gameOver)
         {
-            if (_isGrounded && Input.GetButton("Sprint") && _manaSlider.value > _sprintMana)
+            if (!_inputLock)
             {
-                _speed = DEFAULTSPEED * 2;
-                _manaSlider.value -= _sprintMana;
-            }
-            else
-            {
-                _speed = DEFAULTSPEED;
-            }
-            float deltaX = Input.GetAxis("Horizontal") * _speed;
-            Vector2 movement = new Vector2(deltaX, _rb.velocity.y);
-            _animator.SetFloat("speed", Mathf.Abs(deltaX));
-            if (Input.GetButtonDown("Attack0"))
-            {
-                Attack0();
-            }
-            else if (Input.GetButtonDown("Attack1") && _manaSlider.value > _attack1Mana)
-            {
-                Attack1();
-            }
-            else if (Input.GetAxis("Attack2") > 0 && _manaSlider.value > _attack2Mana)
-            {
-                Attack2();
-            }
+                if (Input.GetButtonDown("Block") && _shield == null)
+                {
+                    _audioSource.PlayOneShot(_blockAudio);
+                    Vector3 shieldpos = new Vector3(transform.localScale.x, -1, 0);
+                    _shield = Instantiate(_shieldPrefab, transform.position + shieldpos, Quaternion.Euler( new Vector3(0, 0, 20f * transform.localScale.x)));
+                    _animator.SetBool("block", true);
+                    Invoke(nameof(StopBlock), 0.5f);
+                }
+                if (_isGrounded && Input.GetButton("Sprint") && _manaSlider.value > _sprintMana)
+                {
+                    _speed = DEFAULTSPEED * 2;
+                    _manaSlider.value -= _sprintMana;
+                }
+                else
+                {
+                    _speed = DEFAULTSPEED;
+                }
+                float deltaX = Input.GetAxis("Horizontal") * _speed;
+                Vector2 movement = new Vector2(deltaX, _rb.velocity.y);
+                _animator.SetFloat("speed", Mathf.Abs(deltaX));
+                if (Input.GetButtonDown("Attack0"))
+                {
+                    Attack0();
+                }
+                else if (Input.GetButtonDown("Attack1") && _manaSlider.value > _attack1Mana)
+                {
+                    Attack1();
+                }
+                else if (Input.GetAxis("Attack2") > 0 && _manaSlider.value > _attack2Mana)
+                {
+                    Attack2();
+                }
 
-            else
-            {
-                _rb.velocity = movement;
-            }
-            if (!Mathf.Approximately(deltaX, 0))
-            {
-                transform.localScale = new Vector3(Mathf.Sign(deltaX), 1, 1);
-            }
-            // Reset Jumps after touching the ground
-            if (_isGrounded)
-            {
-                _jumps = 2;
-            }
-            // First Jump
-            if (_jumps == 2 && Input.GetButtonDown("Jump"))
-            {
-                _audioSource.PlayOneShot(_jumpAudio);
-                Jump();
-            }
-            // Second jump requires mana
-            else if (_jumps == 1 && Input.GetButtonDown("Jump") && _manaSlider.value > _jumpMana)
-            {
-                _audioSource.PlayOneShot(_secondJumpAudio);
-                _manaSlider.value -= _jumpMana;
-                Jump();
+                else
+                {
+                    _rb.velocity = movement;
+                }
+                if (!Mathf.Approximately(deltaX, 0))
+                {
+                    transform.localScale = new Vector3(Mathf.Sign(deltaX), 1, 1);
+                }
+                // Reset Jumps after touching the ground
+                if (_isGrounded)
+                {
+                    _jumps = 2;
+                }
+                // First Jump
+                if (_jumps == 2 && Input.GetButtonDown("Jump"))
+                {
+                    _audioSource.PlayOneShot(_jumpAudio);
+                    Jump();
+                }
+                // Second jump requires mana
+                else if (_jumps == 1 && Input.GetButtonDown("Jump") && _manaSlider.value > _jumpMana)
+                {
+                    _audioSource.PlayOneShot(_secondJumpAudio);
+                    _manaSlider.value -= _jumpMana;
+                    Jump();
+                }
             }
         }
         // Game over
@@ -129,6 +145,14 @@ public class PlayerController : MonoBehaviour
     {
         _inputLock = false;
     }
+    private void StopBlock(){
+        Destroy(_shield);
+        _animator.SetBool("block", false);
+    }
+    private void StopAttack0(){
+        Destroy(_attack0);
+        StopInputLock();
+    }
     private void Jump()
     {
         _jumps--;
@@ -140,9 +164,10 @@ public class PlayerController : MonoBehaviour
         _audioSource.PlayOneShot(_attack0Audio);
         _inputLock = true;
         _animator.SetTrigger("attack0");
+        _attack0 = Instantiate(_attack0Prefab, transform.position + new Vector3(transform.localScale.x * 1.3f, -1.1f, 0), Quaternion.identity);
         // Stop horizontal movement during attack
         _rb.velocity = new Vector2(0, _rb.velocity.y);
-        Invoke(nameof(StopInputLock), .5f);
+        Invoke(nameof(StopAttack0), .5f);
     }
     private void Attack1()
     {
@@ -200,12 +225,14 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    private void KillPlayer(){
+    private void KillPlayer()
+    {
         _audioSource.PlayOneShot(_deathAudio);
         _animator.SetBool("alive", false);
         Debug.Log("Dead");
     }
-    private void ChangeColor(){
+    private void ChangeColor()
+    {
         GetComponent<SpriteRenderer>().color = Color.white;
     }
 }
