@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            PlayerResources player = collision.gameObject.GetComponent<PlayerResources>();
             if (_damageCoroutine == null)
             {
                 _damageCoroutine = StartCoroutine(player.DamagePlayer(_damageStrength, 1.0f));
