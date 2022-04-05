@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _attack1Prefab;
     [SerializeField] private Slider _healthSlider;
     [SerializeField] private Slider _manaSlider;
+    [SerializeField] private Inventory _inventoryPrefab;
     [SerializeField] private float _attack1Mana = 5;
     [SerializeField] private float _attack2Mana = 10;
     [SerializeField] private float _sprintMana = 0.01f;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private GameObject _shield;
     private GameObject _attack0;
     private GameObject _attack1;
+    private Inventory _inventory;
 
     void Start()
     {
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _inventory = Instantiate(_inventoryPrefab);
     }
     private void FixedUpdate()
     {
@@ -247,5 +250,34 @@ public class PlayerController : MonoBehaviour
     private void ChangeColor()
     {
         GetComponent<SpriteRenderer>().color = Color.white;
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PickUp"))
+        {
+            ItemData hitObject = collision.gameObject.
+            GetComponent<Consumable>().Item;
+            if (hitObject != null)
+            {
+                print("Hit: " + hitObject.ObjectName);
+                switch (hitObject.Type)
+                {
+                    case ItemData.ItemType.Coin:
+                    
+                        break;
+                    case ItemData.ItemType.Health:
+                        AdjustHitPoints(hitObject.Quantity);
+                        break;
+                    case ItemData.ItemType.Strawberry:
+                        AdjustHitPoints(hitObject.Quantity);
+                        break;
+                }
+                collision.gameObject.SetActive(false);
+            }
+        }
+    }
+    public void AdjustHitPoints(int amount)
+    {
+        _healthSlider.value += amount;
     }
 }
