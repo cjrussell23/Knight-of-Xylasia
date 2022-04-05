@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1fa57f283182d4899f09438a9bafb6, type: 3}
   m_Name: Strawberry
   m_EditorClassIdentifier: 
-  _objectName: 
-  _sprite: {fileID: 0}
+  _objectName: Strawberry
+  _sprite: {fileID: 1775669009216684005, guid: a2c110585eb710b408972fbc3b96136d, type: 3}
   _quantity: 0
-  _isStackable: 0
-  _itemType: 0
+  _isStackable: 1
+  _itemType: 2
