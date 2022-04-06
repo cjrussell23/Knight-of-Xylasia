@@ -24,3 +24,30 @@ https://assetstore.unity.com/packages/2d/characters/knight-sprite-sheet-free-938
 https://freesound.org/people/Alexamin/sounds/547126/
 https://assetstore.unity.com/packages/audio/sound-fx/voices/voices-essentials-214441#content
 https://freesound.org/people/Timbre/sounds/131263/
+
+### Features
+#### Player attacks
+attack0 - basic melee attack - no mana cost - stops player movement
+attack1 - Jab attack - cost mana - moves player forward
+attack2 - Magic fireball - cost mana - stops player movement
+
+#### Jumping
+Player gets two jumps after touching the ground. The first one is free, the second one cost mana and jumps higher
+
+#### Sprint
+The player can sprint, it costs mana and moves the player fast, they have to be on the ground.
+
+#### Fruits 
+Apple - Gives more health
+Bananna - Gives mana
+Kiwi - Gives damage buff
+Melon - Gives permenant Health
+Orange - Gives more mana
+Pineapple - Gives permenant mana 
+Strawberry - Gives health
+
+### Todo
+1. Menu screen
+2. NPC that introduces the game when loading in
+
+

@@ -7,8 +7,14 @@ public class ItemData : ScriptableObject
     public enum ItemType
     {
         Coin,
-        Health,
-        Strawberry
+        Apple,
+        Bananna,
+        Kiwi,
+        Melon,
+        Orange,
+        Pineapple,
+        Strawberry,
+
     }
     [SerializeField] private string _objectName;
     [SerializeField] private Sprite _sprite;

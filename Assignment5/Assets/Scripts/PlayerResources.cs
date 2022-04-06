@@ -14,6 +14,9 @@ public class PlayerResources : MonoBehaviour
     [SerializeField] private float _sprintMana = 0.05f;
     [SerializeField] private float _manaRegen = 0.05f;
     [SerializeField] private float _jumpMana = 20f;
+    // Damage Modifiers
+    [SerializeField] private int DEFAULTDAMAGEMULTIPLIER = 1;
+    private int _damageMultiplier;
     // Player scripts
     private PlayerAudio _playerAudio;
     // Components
@@ -22,18 +25,16 @@ public class PlayerResources : MonoBehaviour
     {
         // Player scripts
         _playerAudio = GetComponent<PlayerAudio>();
-    }
-
-    
-    void Update()
-    {
-        
+        // Damage Modifiers
+        _damageMultiplier = DEFAULTDAMAGEMULTIPLIER;
     }
     private void FixedUpdate()
     {
         _manaSlider.value += _manaRegen;
     }
-    // Getters
+    ////////////////////////////////////////////////////////////////////////////////
+    // Getters - public
+    ////////////////////////////////////////////////////////////////////////////////
     public float GetMana()
     {
         return _manaSlider.value;
@@ -58,7 +59,9 @@ public class PlayerResources : MonoBehaviour
     {
         return _jumpMana;
     }
-    // Setters
+    ////////////////////////////////////////////////////////////////////////////////
+    // Setters - public
+    ////////////////////////////////////////////////////////////////////////////////
     public void AdjustHitPoints(float amount)
     {
         _healthSlider.value += amount;
@@ -67,7 +70,24 @@ public class PlayerResources : MonoBehaviour
     {
         _manaSlider.value += amount;
     }
-    // Other
+    ////////////////////////////////////////////////////////////////////////////////
+    // Damage Multiplier - public
+    ////////////////////////////////////////////////////////////////////////////////
+    public void AdjustDamageMultiplier(int damage)
+    {
+        _damageMultiplier = damage;
+    }
+    public void ResetDamageMultiplier()
+    {
+        _damageMultiplier = DEFAULTDAMAGEMULTIPLIER;
+    }
+    public int GetDamageMultiplier()
+    {
+        return _damageMultiplier;
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    // Damage Player - public
+    ////////////////////////////////////////////////////////////////////////////////
     public IEnumerator DamagePlayer(int damage, float interval)
     {
         while (true)
@@ -92,6 +112,9 @@ public class PlayerResources : MonoBehaviour
             }
         }
     }
+    ////////////////////////////////////////////////////////////////////////////////
+    // Utility - private
+    ////////////////////////////////////////////////////////////////////////////////
     private void ChangeColor()
     {
         GetComponent<SpriteRenderer>().color = Color.white;

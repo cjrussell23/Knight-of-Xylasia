@@ -29,7 +29,22 @@ public class PlayerPickUp : MonoBehaviour
                     case ItemData.ItemType.Coin:
                     
                         break;
-                    case ItemData.ItemType.Health:
+                    case ItemData.ItemType.Apple:
+                        _playerResources.AdjustHitPoints(hitObject.Quantity);
+                        break;
+                    case ItemData.ItemType.Bananna:
+                        _playerResources.AdjustMana(hitObject.Quantity);
+                        break;
+                    case ItemData.ItemType.Kiwi:
+                        _playerResources.AdjustDamageMultiplier(hitObject.Quantity);
+                        break;
+                    case ItemData.ItemType.Melon:
+                        _playerResources.AdjustHitPoints(hitObject.Quantity);
+                        break;
+                    case ItemData.ItemType.Orange:
+                        _playerResources.AdjustHitPoints(hitObject.Quantity);
+                        break;
+                    case ItemData.ItemType.Pineapple:
                         _playerResources.AdjustHitPoints(hitObject.Quantity);
                         break;
                     case ItemData.ItemType.Strawberry:

@@ -200,10 +200,3 @@ public class PlayerActions : MonoBehaviour
         _playerController.SetInputLock(false);
     }
 }
-
-// Not sure where this code was lol
-// else
-//     {
-//     
-//     }
-//     
