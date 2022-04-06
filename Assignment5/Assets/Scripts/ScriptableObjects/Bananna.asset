@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1fa57f283182d4899f09438a9bafb6, type: 3}
   m_Name: Bananna
   m_EditorClassIdentifier: 
-  _objectName: 
-  _sprite: {fileID: 0}
-  _quantity: 0
+  _objectName: Bananna
+  _sprite: {fileID: -5728686177044832811, guid: b1f24b3bc2e2f1d4b858657ad5c115a0, type: 3}
+  _quantity: 20
   _isStackable: 0
-  _itemType: 0
+  _itemType: 2

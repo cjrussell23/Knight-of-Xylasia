@@ -72,12 +72,21 @@ public class PlayerResources : MonoBehaviour
     {
         _manaSlider.value += amount;
     }
+    public void IncreaseMaxMana(float amount)
+    {
+        _manaSlider.maxValue += amount;
+    }
+    public void IncreaseMaxHealth(float amount)
+    {
+        _healthSlider.maxValue += amount;
+    }
     ////////////////////////////////////////////////////////////////////////////////
     // Damage Multiplier - public
     ////////////////////////////////////////////////////////////////////////////////
-    public void AdjustDamageMultiplier(int damage)
+    public void AdjustDamageMultiplier(int damage, float time)
     {
         _damageMultiplier = damage;
+        Invoke(nameof(ResetDamageMultiplier), time);
     }
     public void ResetDamageMultiplier()
     {

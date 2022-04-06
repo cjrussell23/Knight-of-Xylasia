@@ -29,25 +29,25 @@ public class PlayerPickUp : MonoBehaviour
                     case ItemData.ItemType.Coin:
                     
                         break;
-                    case ItemData.ItemType.Apple:
+                    case ItemData.ItemType.Apple: // Apple - Gives more health
                         _playerResources.AdjustHitPoints(hitObject.Quantity);
                         break;
-                    case ItemData.ItemType.Bananna:
+                    case ItemData.ItemType.Bananna: // Bananna - Gives mana
                         _playerResources.AdjustMana(hitObject.Quantity);
                         break;
-                    case ItemData.ItemType.Kiwi:
-                        _playerResources.AdjustDamageMultiplier(hitObject.Quantity);
+                    case ItemData.ItemType.Kiwi: // Kiwi - Gives damage buff
+                        _playerResources.AdjustDamageMultiplier(hitObject.Quantity, 10f);
                         break;
-                    case ItemData.ItemType.Melon:
-                        _playerResources.AdjustHitPoints(hitObject.Quantity);
+                    case ItemData.ItemType.Melon: // Melon - Gives permenant Health
+                        _playerResources.IncreaseMaxHealth(hitObject.Quantity);
                         break;
-                    case ItemData.ItemType.Orange:
-                        _playerResources.AdjustHitPoints(hitObject.Quantity);
+                    case ItemData.ItemType.Orange: // Orange - Gives more mana
+                        _playerResources.AdjustMana(hitObject.Quantity);
                         break;
-                    case ItemData.ItemType.Pineapple:
-                        _playerResources.AdjustHitPoints(hitObject.Quantity);
+                    case ItemData.ItemType.Pineapple: // Pineapple - Gives permenant mana 
+                        _playerResources.IncreaseMaxMana(hitObject.Quantity);
                         break;
-                    case ItemData.ItemType.Strawberry:
+                    case ItemData.ItemType.Strawberry: // Strawberry - Gives health
                         _playerResources.AdjustHitPoints(hitObject.Quantity);
                         break;
                 }

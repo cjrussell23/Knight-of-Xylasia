@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1fa57f283182d4899f09438a9bafb6, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  _objectName: 
-  _sprite: {fileID: 0}
-  _quantity: 0
+  _objectName: Apple
+  _sprite: {fileID: 7293598183456022363, guid: 1ddc9afd21fec77489b1248d18f31b68, type: 3}
+  _quantity: 100
   _isStackable: 0
-  _itemType: 0
+  _itemType: 1

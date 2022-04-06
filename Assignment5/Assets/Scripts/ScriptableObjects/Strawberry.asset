@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectName: Strawberry
   _sprite: {fileID: 1775669009216684005, guid: a2c110585eb710b408972fbc3b96136d, type: 3}
-  _quantity: 0
-  _isStackable: 1
-  _itemType: 2
+  _quantity: 20
+  _isStackable: 0
+  _itemType: 7
