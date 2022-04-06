@@ -45,6 +45,7 @@ Melon - Gives permenant Health
 Orange - Gives more mana
 Pineapple - Gives permenant mana 
 Strawberry - Gives health
+Cherries - Permenantly increases mana regeneration
 
 ### Todo
 1. Menu screen

@@ -13,7 +13,8 @@ public class ItemData : ScriptableObject
         Melon,
         Orange,
         Pineapple,
-        Strawberry
+        Strawberry,
+        Cherries
     }
     [SerializeField] private string _objectName;
     [SerializeField] private Sprite _sprite;

@@ -36,7 +36,7 @@ public class PlayerPickUp : MonoBehaviour
                         _playerResources.AdjustMana(hitObject.Quantity);
                         break;
                     case ItemData.ItemType.Kiwi: // Kiwi - Gives damage buff
-                        _playerResources.AdjustDamageMultiplier(hitObject.Quantity, 10f);
+                        _playerResources.AdjustDamageMultiplier(hitObject.Quantity);
                         break;
                     case ItemData.ItemType.Melon: // Melon - Gives permenant Health
                         _playerResources.IncreaseMaxHealth(hitObject.Quantity);
@@ -49,6 +49,9 @@ public class PlayerPickUp : MonoBehaviour
                         break;
                     case ItemData.ItemType.Strawberry: // Strawberry - Gives health
                         _playerResources.AdjustHitPoints(hitObject.Quantity);
+                        break;
+                    case ItemData.ItemType.Cherries: // Cherries - Increase Mana Regen
+                        _playerResources.IncreaseManaRegen(hitObject.Quantity);
                         break;
                 }
                 collision.gameObject.SetActive(false);

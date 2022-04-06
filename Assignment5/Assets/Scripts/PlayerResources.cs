@@ -12,8 +12,9 @@ public class PlayerResources : MonoBehaviour
     [SerializeField] private float _attack1Mana = 10;
     [SerializeField] private float _attack2Mana = 20;
     [SerializeField] private float _sprintMana = 0.05f;
-    [SerializeField] private float _manaRegen = 0.05f;
+    [SerializeField] private float _manaRegen;
     [SerializeField] private float _jumpMana = 20f;
+    [SerializeField] private float DEFAULTMANAREGEN = 0.05f;
     // Damage Modifiers
     [SerializeField] private int DEFAULTDAMAGEMULTIPLIER = 1;
     private int _damageMultiplier;
@@ -29,6 +30,8 @@ public class PlayerResources : MonoBehaviour
         _playerAudio = GetComponent<PlayerAudio>();
         // Damage Modifiers
         _damageMultiplier = DEFAULTDAMAGEMULTIPLIER;
+        // Mana
+        _manaRegen = DEFAULTMANAREGEN;
     }
     private void FixedUpdate()
     {
@@ -80,13 +83,16 @@ public class PlayerResources : MonoBehaviour
     {
         _healthSlider.maxValue += amount;
     }
+    public void IncreaseManaRegen(float amount)
+    {
+        _manaRegen *= amount;
+    }
     ////////////////////////////////////////////////////////////////////////////////
     // Damage Multiplier - public
     ////////////////////////////////////////////////////////////////////////////////
-    public void AdjustDamageMultiplier(int damage, float time)
+    public void AdjustDamageMultiplier(int damage)
     {
         _damageMultiplier = damage;
-        Invoke(nameof(ResetDamageMultiplier), time);
     }
     public void ResetDamageMultiplier()
     {
