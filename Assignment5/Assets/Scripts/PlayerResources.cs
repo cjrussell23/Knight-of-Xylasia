@@ -23,6 +23,8 @@ public class PlayerResources : MonoBehaviour
     private Animator _animator;
     void Start()
     {
+        // Components
+        _animator = GetComponent<Animator>();
         // Player scripts
         _playerAudio = GetComponent<PlayerAudio>();
         // Damage Modifiers
@@ -115,7 +117,7 @@ public class PlayerResources : MonoBehaviour
     ////////////////////////////////////////////////////////////////////////////////
     // Utility - private
     ////////////////////////////////////////////////////////////////////////////////
-    private void ChangeColor()
+    public void ChangeColor()
     {
         GetComponent<SpriteRenderer>().color = Color.white;
     }

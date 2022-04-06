@@ -49,5 +49,6 @@ Strawberry - Gives health
 ### Todo
 1. Menu screen
 2. NPC that introduces the game when loading in
+3. Make fruits click to use?
 
 
