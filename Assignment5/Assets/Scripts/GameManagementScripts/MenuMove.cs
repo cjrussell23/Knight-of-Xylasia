@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class MenuMove : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    [SerializeField] private float _speed = 0.1f;
     void Update()
     {
-        
+        transform.position = new Vector3(transform.position.x + _speed, transform.position.y, transform.position.z);
     }
 }
