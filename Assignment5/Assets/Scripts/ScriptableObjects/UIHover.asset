@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f1fa57f283182d4899f09438a9bafb6, type: 3}
-  m_Name: Cherries
+  m_Script: {fileID: 11500000, guid: e7fa9cb3c2a65254caa08e27e2efed87, type: 3}
+  m_Name: UIHover
   m_EditorClassIdentifier: 
-  _objectName: Cherries
-  _sprite: {fileID: -4570538037665054336, guid: 3d6be91968cb95546ac95aeff5e52f84, type: 3}
-  _quantity: 2
-  _isStackable: 0
-  _itemType: 8
+  Value: 0

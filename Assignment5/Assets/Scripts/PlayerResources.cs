@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class PlayerResources : MonoBehaviour
 {
     // Sliders 
-    [SerializeField] private Slider _healthSlider;
-    [SerializeField] private Slider _manaSlider;
+    private Slider _healthSlider;
+    private Slider _manaSlider;
     // Player Stats
     [SerializeField] private float _attack1Mana = 10;
     [SerializeField] private float _attack2Mana = 20;
@@ -26,6 +26,8 @@ public class PlayerResources : MonoBehaviour
     {
         // Components
         _animator = GetComponent<Animator>();
+        _healthSlider = GameObject.Find("PlayerHealthBar").GetComponent<Slider>();
+        _manaSlider = GameObject.Find("PlayerManaBar").GetComponent<Slider>();
         // Player scripts
         _playerAudio = GetComponent<PlayerAudio>();
         // Damage Modifiers

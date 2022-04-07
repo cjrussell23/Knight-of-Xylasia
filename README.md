@@ -51,5 +51,6 @@ Cherries - Permenantly increases mana regeneration
 1. Menu screen
 2. NPC that introduces the game when loading in
 3. Make fruits click to use?
+4. Make fruits go into inventory
 
 

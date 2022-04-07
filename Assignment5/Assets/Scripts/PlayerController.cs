@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private BooleanVariable _inventoryHover;
     // Variables
     private bool _gameOver;
     private bool _invulnerable;
     private bool _inputLock;
-    // Player Inventory
-    [SerializeField] private Inventory _inventoryPrefab;
-    private Inventory _inventory;
+    
     // Other Player Scripts
     private PlayerResources _playerResources;
     private PlayerActions _playerActions;
@@ -27,8 +26,7 @@ public class PlayerController : MonoBehaviour
         _gameOver = false;
         // Components
         _animator = GetComponent<Animator>();
-        // Inventory
-        _inventory = Instantiate(_inventoryPrefab);
+        
     }
     void Update()
     {
@@ -50,15 +48,15 @@ public class PlayerController : MonoBehaviour
                 }
                 // After setting the speed with walk/sprint, move the player
                 _playerActions.Move();
-                if (Input.GetButtonDown("Attack0"))
+                if (Input.GetButtonDown("Attack0") && _inventoryHover.Value == false)
                 {
                     _playerActions.Attack0();
                 }
-                else if (Input.GetButtonDown("Attack1"))
+                if (Input.GetButtonDown("Attack1"))
                 {
                     _playerActions.Attack1();
                 }
-                else if (Input.GetAxis("Attack2") > 0)
+                if (Input.GetAxis("Attack2") > 0)
                 {
                     _playerActions.Attack2();
                 } 

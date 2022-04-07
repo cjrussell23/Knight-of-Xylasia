@@ -5,11 +5,14 @@ public class PlayerPickUp : MonoBehaviour
     // Other Player Scripts
     private PlayerController _playerController;
     private PlayerResources _playerResources;
+    private Inventory _inventory;
     void Start()
     {
         // Other Player Scripts
         _playerController = GetComponent<PlayerController>();
         _playerResources = GetComponent<PlayerResources>();
+        // Inventory
+        _inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
     }
     void Update()
     {
@@ -24,38 +27,47 @@ public class PlayerPickUp : MonoBehaviour
             if (hitObject != null)
             {
                 print("Hit: " + hitObject.ObjectName);
-                switch (hitObject.Type)
-                {
-                    case ItemData.ItemType.Coin:
+                _inventory.AddItem(hitObject);
+                // switch (hitObject.Type)
+                // {
                     
-                        break;
-                    case ItemData.ItemType.Apple: // Apple - Gives more health
-                        _playerResources.AdjustHitPoints(hitObject.Quantity);
-                        break;
-                    case ItemData.ItemType.Bananna: // Bananna - Gives mana
-                        _playerResources.AdjustMana(hitObject.Quantity);
-                        break;
-                    case ItemData.ItemType.Kiwi: // Kiwi - Gives damage buff
-                        _playerResources.AdjustDamageMultiplier(hitObject.Quantity);
-                        break;
-                    case ItemData.ItemType.Melon: // Melon - Gives permenant Health
-                        _playerResources.IncreaseMaxHealth(hitObject.Quantity);
-                        break;
-                    case ItemData.ItemType.Orange: // Orange - Gives more mana
-                        _playerResources.AdjustMana(hitObject.Quantity);
-                        break;
-                    case ItemData.ItemType.Pineapple: // Pineapple - Gives permenant mana 
-                        _playerResources.IncreaseMaxMana(hitObject.Quantity);
-                        break;
-                    case ItemData.ItemType.Strawberry: // Strawberry - Gives health
-                        _playerResources.AdjustHitPoints(hitObject.Quantity);
-                        break;
-                    case ItemData.ItemType.Cherries: // Cherries - Increase Mana Regen
-                        _playerResources.IncreaseManaRegen(hitObject.Quantity);
-                        break;
-                }
+                // }
                 collision.gameObject.SetActive(false);
             }
+        }
+    }
+    public void UseItem(ItemData item){
+        if (item != null){
+            Debug.Log("Using Item: " + item.Type);
+            switch (item.Type)
+                {
+                    case ItemData.ItemType.Coin:
+                        break;
+                    case ItemData.ItemType.Apple: // Apple - Gives more health
+                        _playerResources.AdjustHitPoints(item.Quantity);
+                        break;
+                    case ItemData.ItemType.Bananna: // Bananna - Gives mana
+                        _playerResources.AdjustMana(item.Quantity);
+                        break;
+                    case ItemData.ItemType.Kiwi: // Kiwi - Gives damage buff
+                        _playerResources.AdjustDamageMultiplier(item.Quantity);
+                        break;
+                    case ItemData.ItemType.Melon: // Melon - Gives permenant Health
+                        _playerResources.IncreaseMaxHealth(item.Quantity);
+                        break;
+                    case ItemData.ItemType.Orange: // Orange - Gives more mana
+                        _playerResources.AdjustMana(item.Quantity);
+                        break;
+                    case ItemData.ItemType.Pineapple: // Pineapple - Gives permenant mana 
+                        _playerResources.IncreaseMaxMana(item.Quantity);
+                        break;
+                    case ItemData.ItemType.Strawberry: // Strawberry - Gives health
+                        _playerResources.AdjustHitPoints(item.Quantity);
+                        break;
+                    case ItemData.ItemType.Cherries: // Cherries - Increase Mana Regen
+                        _playerResources.IncreaseManaRegen(item.Quantity);
+                        break;
+                }
         }
     }
 }
