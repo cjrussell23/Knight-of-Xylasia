@@ -22,12 +22,16 @@ public class PlayerResources : MonoBehaviour
     private PlayerAudio _playerAudio;
     // Components
     private Animator _animator;
+    private BoxCollider2D _collider;
+    private Rigidbody2D _rb;
     void Start()
     {
         // Components
         _animator = GetComponent<Animator>();
         _healthSlider = GameObject.Find("PlayerHealthBar").GetComponent<Slider>();
         _manaSlider = GameObject.Find("PlayerManaBar").GetComponent<Slider>();
+        _collider = GetComponent<BoxCollider2D>();
+        _rb = GetComponent<Rigidbody2D>();
         // Player scripts
         _playerAudio = GetComponent<PlayerAudio>();
         // Damage Modifiers
@@ -115,7 +119,7 @@ public class PlayerResources : MonoBehaviour
             _playerAudio.Play("hurt");
             _animator.SetTrigger("hurt");
             _healthSlider.value -= damage;
-            Invoke(nameof(ChangeColor), 0.167f);
+            Invoke(nameof(ResetColor), 0.167f);
             if (_healthSlider.value <= float.Epsilon)
             {
                 KillPlayer();
@@ -134,7 +138,7 @@ public class PlayerResources : MonoBehaviour
     ////////////////////////////////////////////////////////////////////////////////
     // Utility - private
     ////////////////////////////////////////////////////////////////////////////////
-    public void ChangeColor()
+    public void ResetColor()
     {
         GetComponent<SpriteRenderer>().color = Color.white;
     }
@@ -142,6 +146,13 @@ public class PlayerResources : MonoBehaviour
     {
         _playerAudio.Play("death");
         _animator.SetBool("alive", false);
+        _collider.enabled = false;
+        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        Invoke(nameof(StopTime), 0.75f * 2);
         Debug.Log("Dead");
+    }
+    private void StopTime()
+    {
+        Time.timeScale = 0;
     }
 }

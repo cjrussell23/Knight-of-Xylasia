@@ -47,6 +47,12 @@ Pineapple - Gives permenant mana - rarity 3
 Strawberry - Gives health - rarity 1
 Cherries - Permenantly increases mana regeneration - rarity 3
 
+### Levels / Scenes
+Main menu
+Tutorial Level
+Main Game Level
+Boss Level
+
 ### Todo
 1. Menu screen
 2. NPC that introduces the game when loading in
