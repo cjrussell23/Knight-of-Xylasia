@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectName: Bananna
   _sprite: {fileID: -5728686177044832811, guid: b1f24b3bc2e2f1d4b858657ad5c115a0, type: 3}
-  _quantity: 1
+  _quantity: 0
   _isStackable: 1
   _itemType: 2
   _rarity: 1
+  _quality: 10

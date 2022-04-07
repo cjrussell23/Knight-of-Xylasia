@@ -22,12 +22,11 @@ public class fireball : MonoBehaviour
         _rb.AddForce(new Vector2(.1f * direction, 0));
         Invoke(nameof(DestroyFireBall), 2f);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             transform.position = collision.gameObject.transform.position;
-            Debug.Log("hit");
             _soundManager.Explosion();
             _rb.velocity = Vector3.zero;
             _animator.SetTrigger("hit");
