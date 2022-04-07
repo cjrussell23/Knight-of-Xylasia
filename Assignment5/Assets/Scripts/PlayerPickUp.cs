@@ -5,12 +5,15 @@ public class PlayerPickUp : MonoBehaviour
     // Other Player Scripts
     private PlayerController _playerController;
     private PlayerResources _playerResources;
+    private PlayerAudio _playerAudio;
+    // Inventory
     private Inventory _inventory;
     void Start()
     {
         // Other Player Scripts
         _playerController = GetComponent<PlayerController>();
         _playerResources = GetComponent<PlayerResources>();
+        _playerAudio = GetComponent<PlayerAudio>();
         // Inventory
         _inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
     }
@@ -38,7 +41,7 @@ public class PlayerPickUp : MonoBehaviour
     }
     public void UseItem(ItemData item){
         if (item != null){
-            Debug.Log("Using Item: " + item.Type);
+            _playerAudio.Play("eat");
             switch (item.Type)
                 {
                     case ItemData.ItemType.Coin:

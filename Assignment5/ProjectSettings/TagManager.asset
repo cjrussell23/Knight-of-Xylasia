@@ -9,6 +9,7 @@ TagManager:
   - Shield
   - Weapon
   - PickUp
+  - Inventory
   layers:
   - Default
   - TransparentFX

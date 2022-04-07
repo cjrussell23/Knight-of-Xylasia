@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectName: Apple
   _sprite: {fileID: 7293598183456022363, guid: 1ddc9afd21fec77489b1248d18f31b68, type: 3}
-  _quantity: 100
-  _isStackable: 0
+  _quantity: 1
+  _isStackable: 1
   _itemType: 1
+  _rarity: 2

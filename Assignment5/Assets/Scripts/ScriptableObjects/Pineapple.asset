@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectName: Pineapple
   _sprite: {fileID: 837517196756356485, guid: 131e485692e27e84c86170dad18cda85, type: 3}
-  _quantity: 20
-  _isStackable: 0
+  _quantity: 1
+  _isStackable: 1
   _itemType: 6
+  _rarity: 3

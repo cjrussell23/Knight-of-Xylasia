@@ -13,6 +13,7 @@ public class PlayerAudio : MonoBehaviour
     [SerializeField] private AudioClip _hurtAudio;
     [SerializeField] private AudioClip _deathAudio;
     [SerializeField] private AudioClip _blockAudio;
+    [SerializeField] private AudioClip _eatAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +50,9 @@ public class PlayerAudio : MonoBehaviour
                 break;
             case "block":
                 _audioSource.PlayOneShot(_blockAudio);
+                break;
+            case "eat":
+                _audioSource.PlayOneShot(_eatAudio);
                 break;
         }
     }

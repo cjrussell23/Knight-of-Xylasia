@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float _startingHitPoints = 5;
     [SerializeField] private int _damageStrength;
     [SerializeField] private Slider _healthSlider;
+    [SerializeField] private int _maxLootRarity = 0;
+    [SerializeField] private int _maxLootQty = 0;
     private Coroutine _damageCoroutine;
     private void Awake() {
         _healthSlider.maxValue = _startingHitPoints;
@@ -35,6 +37,7 @@ public class Enemy : MonoBehaviour
     }
     public virtual void KillEnemy()
     {
+        SpawnLoot();
         Destroy(gameObject);
     }
     public virtual IEnumerator FlickerEnemy()
@@ -71,6 +74,17 @@ public class Enemy : MonoBehaviour
                 StopCoroutine(_damageCoroutine);
                 _damageCoroutine = null;
             }
+        }
+    }
+    private void SpawnLoot(){
+        int lootRarity = Random.Range(1, _maxLootRarity);
+        int lootQty = Random.Range(0, _maxLootQty);
+        Debug.Log("Spawning loot: " + lootRarity + " " + lootQty);
+        LootTable lootTable = GameObject.Find("LootTable").GetComponent<LootTable>();
+        for (int i=0; i<lootQty; i++){
+            GameObject[] item = lootTable.GetLoot(lootRarity);
+            int index = Random.Range(0, item.Length);
+            Instantiate(item[index], transform.position, Quaternion.identity);
         }
     }
 }

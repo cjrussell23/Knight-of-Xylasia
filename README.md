@@ -38,14 +38,14 @@ Player gets two jumps after touching the ground. The first one is free, the seco
 The player can sprint, it costs mana and moves the player fast, they have to be on the ground.
 
 #### Fruits 
-Apple - Gives more health
-Bananna - Gives mana
-Kiwi - Gives damage buff
-Melon - Gives permenant Health
-Orange - Gives more mana
-Pineapple - Gives permenant mana 
-Strawberry - Gives health
-Cherries - Permenantly increases mana regeneration
+Apple - Gives more health - rarity 2
+Bananna - Gives mana - rarity 1
+Kiwi - Gives damage buff - rarity 3
+Melon - Gives permenant Health - rarity 3
+Orange - Gives more mana - rarity 2
+Pineapple - Gives permenant mana - rarity 3
+Strawberry - Gives health - rarity 1
+Cherries - Permenantly increases mana regeneration - rarity 3
 
 ### Todo
 1. Menu screen

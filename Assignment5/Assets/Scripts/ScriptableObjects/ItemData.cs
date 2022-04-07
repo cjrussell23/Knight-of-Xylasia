@@ -21,6 +21,7 @@ public class ItemData : ScriptableObject
     [SerializeField] private int _quantity;
     [SerializeField] private bool _isStackable;
     [SerializeField] private ItemType _itemType;
+    [SerializeField] private int _rarity;
     public string ObjectName
     {
         get
@@ -58,6 +59,13 @@ public class ItemData : ScriptableObject
         get
         {
             return _itemType;
+        }
+    }
+    public int Rarity
+    {
+        get
+        {
+            return _rarity;
         }
     }
 }

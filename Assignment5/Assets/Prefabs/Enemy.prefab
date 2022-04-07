@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5523996570625566982}
   - component: {fileID: 5523996570625566984}
   - component: {fileID: 5523996570625566983}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -170,6 +170,8 @@ MonoBehaviour:
   _startingHitPoints: 5
   _damageStrength: 5
   _healthSlider: {fileID: 6298043122610392413}
+  _maxLootRarity: 3
+  _maxLootQty: 5
 --- !u!58 &5523996570625566984
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -201,7 +203,7 @@ MonoBehaviour:
   _pursuitSpeed: 4
   _wanderSpeed: 2
   _directionChangeInterval: 2
-  followPlayer: 0
+  followPlayer: 1
 --- !u!1 &5523996571351102694
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +216,7 @@ GameObject:
   - component: {fileID: 5523996571351102698}
   - component: {fileID: 5523996571351102697}
   - component: {fileID: 5523996571351102696}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,6 +314,22 @@ PrefabInstance:
     - target: {fileID: 5266822330013936127, guid: d1f21bd3b10435c4facc6800c173e517, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266822330013936127, guid: d1f21bd3b10435c4facc6800c173e517, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386174561282345273, guid: d1f21bd3b10435c4facc6800c173e517, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670160870153296075, guid: d1f21bd3b10435c4facc6800c173e517, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5838573331385124765, guid: d1f21bd3b10435c4facc6800c173e517, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7153622978032599064, guid: d1f21bd3b10435c4facc6800c173e517, type: 3}
       propertyPath: m_Pivot.x
