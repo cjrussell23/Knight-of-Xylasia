@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     private void Awake() {
         _healthSlider.maxValue = _startingHitPoints;
     }
-    public IEnumerator DamageEnemy(int damage, float interval)
+    public IEnumerator DamageEnemy(float damage, float interval)
     {
         while (true)
         {

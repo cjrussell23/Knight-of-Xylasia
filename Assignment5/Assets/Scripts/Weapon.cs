@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    private int _damageMultiplier;
+    private float _damageMultiplier;
     private Coroutine _damageCoroutine;
-    [SerializeField] private int _weaponDamage;
+    [SerializeField] private float _weaponDamage;
     private void Awake() {
         _damageMultiplier = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerResources>().GetDamageMultiplier();
     }
@@ -30,7 +30,7 @@ public class Weapon : MonoBehaviour
             }
         }
     }
-    public void SetDamageMultiplier(int damage)
+    public void SetDamageMultiplier(float damage)
     {
         _damageMultiplier = damage;
     }

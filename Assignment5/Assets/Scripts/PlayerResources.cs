@@ -16,8 +16,8 @@ public class PlayerResources : MonoBehaviour
     [SerializeField] private float _jumpMana = 20f;
     [SerializeField] private float DEFAULTMANAREGEN = 0.05f;
     // Damage Modifiers
-    [SerializeField] private int DEFAULTDAMAGEMULTIPLIER = 1;
-    private int _damageMultiplier;
+    [SerializeField] private float DEFAULTDAMAGEMULTIPLIER = 1;
+    private float _damageMultiplier;
     // Player scripts
     private PlayerAudio _playerAudio;
     // Components
@@ -92,7 +92,7 @@ public class PlayerResources : MonoBehaviour
     ////////////////////////////////////////////////////////////////////////////////
     // Damage Multiplier - public
     ////////////////////////////////////////////////////////////////////////////////
-    public void AdjustDamageMultiplier(int damage)
+    public void AdjustDamageMultiplier(float damage)
     {
         _damageMultiplier = damage;
     }
@@ -100,7 +100,7 @@ public class PlayerResources : MonoBehaviour
     {
         _damageMultiplier = DEFAULTDAMAGEMULTIPLIER;
     }
-    public int GetDamageMultiplier()
+    public float GetDamageMultiplier()
     {
         return _damageMultiplier;
     }

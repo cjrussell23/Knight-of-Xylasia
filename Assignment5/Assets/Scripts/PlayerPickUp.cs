@@ -47,28 +47,28 @@ public class PlayerPickUp : MonoBehaviour
                     case ItemData.ItemType.Coin:
                         break;
                     case ItemData.ItemType.Apple: // Apple - Gives more health
-                        _playerResources.AdjustHitPoints(item.Quantity);
+                        _playerResources.AdjustHitPoints(item.Quality);
                         break;
                     case ItemData.ItemType.Bananna: // Bananna - Gives mana
-                        _playerResources.AdjustMana(item.Quantity);
+                        _playerResources.AdjustMana(item.Quality);
                         break;
                     case ItemData.ItemType.Kiwi: // Kiwi - Gives damage buff
-                        _playerResources.AdjustDamageMultiplier(item.Quantity);
+                        _playerResources.AdjustDamageMultiplier(item.Quality);
                         break;
                     case ItemData.ItemType.Melon: // Melon - Gives permenant Health
-                        _playerResources.IncreaseMaxHealth(item.Quantity);
+                        _playerResources.IncreaseMaxHealth(item.Quality);
                         break;
                     case ItemData.ItemType.Orange: // Orange - Gives more mana
-                        _playerResources.AdjustMana(item.Quantity);
+                        _playerResources.AdjustMana(item.Quality);
                         break;
                     case ItemData.ItemType.Pineapple: // Pineapple - Gives permenant mana 
-                        _playerResources.IncreaseMaxMana(item.Quantity);
+                        _playerResources.IncreaseMaxMana(item.Quality);
                         break;
                     case ItemData.ItemType.Strawberry: // Strawberry - Gives health
-                        _playerResources.AdjustHitPoints(item.Quantity);
+                        _playerResources.AdjustHitPoints(item.Quality);
                         break;
                     case ItemData.ItemType.Cherries: // Cherries - Increase Mana Regen
-                        _playerResources.IncreaseManaRegen(item.Quantity);
+                        _playerResources.IncreaseManaRegen(item.Quality);
                         break;
                 }
         }
