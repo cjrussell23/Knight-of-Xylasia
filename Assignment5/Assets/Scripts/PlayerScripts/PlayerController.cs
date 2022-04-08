@@ -7,14 +7,13 @@ public class PlayerController : MonoBehaviour
     private bool _gameOver;
     private bool _invulnerable;
     private bool _inputLock;
-    
+
     // Other Player Scripts
     private PlayerResources _playerResources;
     private PlayerActions _playerActions;
     private PlayerAudio _playerAudio;
     // Components
     private Animator _animator;
-
     void Start()
     {
         // Other Player Scripts
