@@ -44,7 +44,7 @@ public class Wizard : MonoBehaviour
     private Queue<string> Dialog()
     {
         Queue<string> dialog = new Queue<string>();
-        dialog.Enqueue("Hello, I'm the Wizard! Press 'T' to talk to me!\n..."); // Step 2
+        dialog.Enqueue("Hello, Walcome to Xylesia! I'm the Wizard! Press 'T' to talk to me!\n..."); // Step 2
         dialog.Enqueue("I'm here to help you get started.\n..."); // Step 3
         dialog.Enqueue("You can move around by pressing the arrow keys.\n..."); // Step 4
         dialog.Enqueue("Wow, looking alive!\n..."); // Step 5
