@@ -14,6 +14,7 @@ public class PlayerAudio : MonoBehaviour
     [SerializeField] private AudioClip _deathAudio;
     [SerializeField] private AudioClip _blockAudio;
     [SerializeField] private AudioClip _eatAudio;
+    [SerializeField] private AudioClip _pickupAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +54,9 @@ public class PlayerAudio : MonoBehaviour
                 break;
             case "eat":
                 _audioSource.PlayOneShot(_eatAudio);
+                break;
+            case "pickup":
+                _audioSource.PlayOneShot(_pickupAudio);
                 break;
         }
     }

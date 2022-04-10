@@ -24,7 +24,6 @@ public class Slot : MonoBehaviour
         }
         set {
             _item = value;
-            Debug.Log(_item);
         }
     }
 }

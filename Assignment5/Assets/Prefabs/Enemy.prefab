@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5523996570625566982}
   - component: {fileID: 5523996570625566984}
   - component: {fileID: 5523996570625566983}
+  - component: {fileID: -6858802759051316220}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -169,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startingHitPoints: 5
   _damageStrength: 5
+  _damageInterval: 1
   _healthSlider: {fileID: 6298043122610392413}
   _maxLootRarity: 3
   _maxLootQty: 5
@@ -204,6 +206,19 @@ MonoBehaviour:
   _wanderSpeed: 2
   _directionChangeInterval: 2
   followPlayer: 1
+--- !u!114 &-6858802759051316220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5523996570625566976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e8aa65fc0447a4792f4a182445ec8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyName: goblin
 --- !u!1 &5523996571351102694
 GameObject:
   m_ObjectHideFlags: 0

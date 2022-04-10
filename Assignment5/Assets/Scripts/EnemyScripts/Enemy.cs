@@ -7,12 +7,17 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] protected float _startingHitPoints = 5;
     [SerializeField] private int _damageStrength;
+    [SerializeField] private float _damageInterval = 1f;
     [SerializeField] private Slider _healthSlider;
     [SerializeField] private int _maxLootRarity = 0;
     [SerializeField] private int _maxLootQty = 0;
     private Coroutine _damageCoroutine;
-    private void Awake() {
+    private Coroutine _attackSoundCoroutine;
+    private EnemySounds _enemySounds;
+    private void Awake()
+    {
         _healthSlider.maxValue = _startingHitPoints;
+        _enemySounds = gameObject.GetComponent<EnemySounds>();
     }
     public IEnumerator DamageEnemy(float damage, float interval)
     {
@@ -22,11 +27,19 @@ public class Enemy : MonoBehaviour
             _healthSlider.value -= damage;
             if (_healthSlider.value <= float.Epsilon)
             {
+                if (_enemySounds != null)
+                {
+                    _enemySounds.Play("death");
+                }
                 KillEnemy();
                 break;
             }
             if (interval > float.Epsilon)
             {
+                if (_enemySounds != null)
+                {
+                    _enemySounds.Play("hurt");
+                }
                 yield return new WaitForSeconds(interval);
             }
             else
@@ -61,7 +74,8 @@ public class Enemy : MonoBehaviour
             PlayerResources player = collision.gameObject.GetComponent<PlayerResources>();
             if (_damageCoroutine == null)
             {
-                _damageCoroutine = StartCoroutine(player.DamagePlayer(_damageStrength, 1.0f));
+                _damageCoroutine = StartCoroutine(player.DamagePlayer(_damageStrength, _damageInterval));
+                _attackSoundCoroutine = StartCoroutine(attackSound(_damageInterval));
             }
         }
     }
@@ -74,17 +88,32 @@ public class Enemy : MonoBehaviour
                 StopCoroutine(_damageCoroutine);
                 _damageCoroutine = null;
             }
+            if (_attackSoundCoroutine != null)
+            {
+                StopCoroutine(_attackSoundCoroutine);
+                _attackSoundCoroutine = null;
+            }
         }
     }
-    private void SpawnLoot(){
-        int lootRarity = Random.Range(1, _maxLootRarity);
+    private void SpawnLoot()
+    {
+        int lootRarity = Random.Range(1, _maxLootRarity + 1);
         int lootQty = Random.Range(0, _maxLootQty);
         Debug.Log("Spawning loot: " + lootRarity + " " + lootQty);
         LootTable lootTable = GameObject.Find("LootTable").GetComponent<LootTable>();
-        for (int i=0; i<lootQty; i++){
+        for (int i = 0; i < lootQty; i++)
+        {
             GameObject[] item = lootTable.GetLoot(lootRarity);
             int index = Random.Range(0, item.Length);
             Instantiate(item[index], transform.position, Quaternion.identity);
+        }
+    }
+    private IEnumerator attackSound(float interval)
+    {
+        while (true)
+        {
+            _enemySounds.Play("attack");
+            yield return new WaitForSeconds(interval);
         }
     }
 }

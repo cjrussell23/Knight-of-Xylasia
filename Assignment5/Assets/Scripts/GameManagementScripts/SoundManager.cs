@@ -9,6 +9,15 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _explosion;
     [SerializeField] private AudioClip _buttonClick;
     [SerializeField] private AudioClip _mainMusic;
+    // Goblin Sounds
+    [SerializeField] private AudioClip _goblinAttack0;
+    [SerializeField] private AudioClip _goblinAttack1;
+    [SerializeField] private AudioClip _goblinAttack2;
+    [SerializeField] private AudioClip _goblinAttack3;
+    [SerializeField] private AudioClip _goblinHurt0;
+    [SerializeField] private AudioClip _goblinHurt1;
+    [SerializeField] private AudioClip _goblinHurt2;
+    [SerializeField] private AudioClip _goblinDeath;
     private void Awake() {
         DontDestroyOnLoad(gameObject);
     }
@@ -31,5 +40,39 @@ public class SoundManager : MonoBehaviour
     public void MainMusic()
     {
         _audioSource.PlayOneShot(_mainMusic);
+    }
+    public void GoblinAttack(){
+        int random = Random.Range(0,4);
+        switch (random){
+            case 0:
+                _audioSource.PlayOneShot(_goblinAttack0);
+                break;
+            case 1:
+                _audioSource.PlayOneShot(_goblinAttack1);
+                break;
+            case 2:
+                _audioSource.PlayOneShot(_goblinAttack2);
+                break;
+            case 3:
+                _audioSource.PlayOneShot(_goblinAttack3);
+                break;
+        }
+    }
+    public void GoblinHurt(){
+        int random = Random.Range(0,3);
+        switch (random){
+            case 0:
+                _audioSource.PlayOneShot(_goblinHurt0);
+                break;
+            case 1:
+                _audioSource.PlayOneShot(_goblinHurt1);
+                break;
+            case 2:
+                _audioSource.PlayOneShot(_goblinHurt2);
+                break;
+        }
+    }
+    public void GoblinDeath(){
+        _audioSource.PlayOneShot(_goblinDeath);
     }
 }

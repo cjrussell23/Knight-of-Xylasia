@@ -28,6 +28,9 @@ Font: https://www.1001fonts.com/future-timesplitters-font.html
 Menu Music: https://opengameart.org/content/loading-screen-loop
 Start Button: https://opengameart.org/content/botton-sound-pack
 Main music theme: https://opengameart.org/content/grassy-world-overture-8bitorchestral
+Item pickup: https://opengameart.org/content/beep-tone-sound-sfx
+Goblins: https://opengameart.org/content/goblins-sound-pack
+
 
 ### Features
 #### Player attacks
@@ -58,9 +61,15 @@ Main Game Level
 Boss Level
 
 ### Todo
-1. Menu screen
-2. NPC that introduces the game when loading in
-3. Make fruits click to use?
-4. Make fruits go into inventory
+1. Menu screen -DONE
+2. NPC that introduces the game when loading in -done
+3. Make fruits click to use? - done
+4. Make fruits go into inventory - done
 
-
+### Additional features
+- Enemy Combat
+- Boss fight
+- Dialog
+- Melee attacks
+- Power ups
+- Tutorial

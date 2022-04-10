@@ -25,18 +25,18 @@ public class PlayerPickUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PickUp"))
         {
-            ItemData hitObject = collision.gameObject.
-            GetComponent<Consumable>().Item;
+            Consumable consumable = collision.gameObject.GetComponent<Consumable>();
+            ItemData hitObject = consumable.Item;
             if (hitObject != null)
             {
-                print("Hit: " + hitObject.ObjectName);
                 _inventory.AddItem(hitObject);
                 // switch (hitObject.Type)
                 // {
                     
                 // }
-                collision.gameObject.SetActive(false);
             }
+            _playerAudio.Play("pickup");
+            consumable.Collected();
         }
     }
     public void UseItem(ItemData item){

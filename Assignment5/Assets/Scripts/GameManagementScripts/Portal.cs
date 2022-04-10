@@ -9,6 +9,7 @@ public class Portal : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             SoundManager soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
             // TODO: Play more epic sound
+            // And maybe a loading animation?
             soundManager.ButtonClick();
             SceneManager.LoadScene("Level1");
         }

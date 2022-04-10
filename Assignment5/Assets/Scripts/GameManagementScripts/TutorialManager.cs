@@ -186,8 +186,7 @@ public class TutorialManager : MonoBehaviour
     private void Step29()
     {
         _stepActive = true;
-        Debug.Log($"Step {_tutorialStep}");
+        //Debug.Log($"Step {_tutorialStep}");
         _rightWall.SetActive(false);
-        _wizardScript.NextSentence();
     }
 }
