@@ -30,6 +30,8 @@ Start Button: https://opengameart.org/content/botton-sound-pack
 Main music theme: https://opengameart.org/content/grassy-world-overture-8bitorchestral
 Item pickup: https://opengameart.org/content/beep-tone-sound-sfx
 Goblins: https://opengameart.org/content/goblins-sound-pack
+https://opengameart.org/content/monster-or-beast-sounds
+https://opengameart.org/content/monster-sound-effects-2
 
 
 ### Features

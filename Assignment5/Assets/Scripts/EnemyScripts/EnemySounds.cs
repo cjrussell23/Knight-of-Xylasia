@@ -24,6 +24,19 @@ public class EnemySounds : MonoBehaviour
                         break;
                 }
                 break;
+            case "demon":
+                switch(sound){
+                    case "attack":
+                        _soundManager.DemonAttack();
+                        break;
+                    case "hurt":
+                        _soundManager.DemonHurt();
+                        break;
+                    case "death":
+                        _soundManager.DemonDeath();
+                        break;
+                }
+                break;
         }
     }
 }

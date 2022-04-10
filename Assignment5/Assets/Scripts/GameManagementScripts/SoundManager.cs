@@ -18,6 +18,13 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _goblinHurt1;
     [SerializeField] private AudioClip _goblinHurt2;
     [SerializeField] private AudioClip _goblinDeath;
+    // Demon sounds
+    [SerializeField] private AudioClip _demonAttack0;
+    [SerializeField] private AudioClip _demonAttack1;
+    [SerializeField] private AudioClip _demonAttack2;
+    [SerializeField] private AudioClip _demonHurt0;
+    [SerializeField] private AudioClip _demonHurt1;
+    [SerializeField] private AudioClip _demonDeath;
     private void Awake() {
         DontDestroyOnLoad(gameObject);
     }
@@ -74,5 +81,33 @@ public class SoundManager : MonoBehaviour
     }
     public void GoblinDeath(){
         _audioSource.PlayOneShot(_goblinDeath);
+    }
+    public void DemonAttack(){
+        int random = Random.Range(0,3);
+        switch (random){
+            case 0:
+                _audioSource.PlayOneShot(_demonAttack0);
+                break;
+            case 1:
+                _audioSource.PlayOneShot(_demonAttack1);
+                break;
+            case 2:
+                _audioSource.PlayOneShot(_demonAttack2);
+                break;
+        }
+    }
+    public void DemonHurt(){
+        int random = Random.Range(0,2);
+        switch (random){
+            case 0:
+                _audioSource.PlayOneShot(_demonHurt0);
+                break;
+            case 1:
+                _audioSource.PlayOneShot(_demonHurt1);
+                break;
+        }
+    }
+    public void DemonDeath(){
+        _audioSource.PlayOneShot(_demonDeath);
     }
 }
