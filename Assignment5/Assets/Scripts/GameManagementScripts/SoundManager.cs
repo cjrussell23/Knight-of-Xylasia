@@ -8,7 +8,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _fireBall;
     [SerializeField] private AudioClip _explosion;
     [SerializeField] private AudioClip _buttonClick;
-    [SerializeField] private AudioClip _mainMusic;
     // Goblin Sounds
     [SerializeField] private AudioClip _goblinAttack0;
     [SerializeField] private AudioClip _goblinAttack1;
@@ -43,10 +42,6 @@ public class SoundManager : MonoBehaviour
     public void ButtonClick()
     {
         _audioSource.PlayOneShot(_buttonClick);
-    }
-    public void MainMusic()
-    {
-        _audioSource.PlayOneShot(_mainMusic);
     }
     public void GoblinAttack(){
         int random = Random.Range(0,4);

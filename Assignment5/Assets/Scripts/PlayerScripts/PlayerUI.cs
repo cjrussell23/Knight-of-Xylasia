@@ -7,7 +7,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject _inventoryPrefab;
     [SerializeField] private GameObject _healthBarPrefab;
     [SerializeField] private GameObject _manaBarPrefab;
-    void Start()
+    void Awake()
     {
         // Instantiate
         GameObject _inventory = Instantiate(_inventoryPrefab);

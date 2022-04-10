@@ -339,3 +339,4 @@ MonoBehaviour:
   _deathAudio: {fileID: 8300000, guid: 8698e45711dc13547ada232e1d3ea399, type: 3}
   _blockAudio: {fileID: 8300000, guid: 5674990cfb8d36444ba33ba763efa7e4, type: 3}
   _eatAudio: {fileID: 8300000, guid: 0d1e80e648ab5524eab56180a1ebbc0c, type: 3}
+  _pickupAudio: {fileID: 8300000, guid: 2d61a5e85239c2246ac43114122140cf, type: 3}

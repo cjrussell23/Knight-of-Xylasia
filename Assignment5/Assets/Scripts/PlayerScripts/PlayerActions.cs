@@ -58,13 +58,14 @@ public class PlayerActions : MonoBehaviour
         }
         // Player has jumped once
         // Second Jump requires mana
-        else if (_jumps == 1 && _playerResources.GetMana() > _playerResources.GetJumpMana()) 
+        else if (_jumps == 1 && _playerResources.GetMana() > _playerResources.GetJumpMana())
         {
             _jumpForce = DEFAULTJUMPFORCE * JUMPMODIFIER;
             _playerAudio.Play("jump1");
             _playerResources.AdjustMana(_playerResources.GetJumpMana() * -1);
         }
-        else {
+        else
+        {
             canJump = false;
         }
         // Common jump code
@@ -72,7 +73,7 @@ public class PlayerActions : MonoBehaviour
         {
             _jumps--;
             _animator.SetTrigger("jump");
-            _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);     
+            _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         }
     }
     public void Sprint()
@@ -151,13 +152,17 @@ public class PlayerActions : MonoBehaviour
     }
     public void Attack2()
     {
-        _playerController.SetInputLock(true);
-        _playerAudio.Play("attack2");
-        _animator.SetTrigger("attack2");
-        _playerResources.AdjustMana(_playerResources.GetAttack2Mana() * -1);
-        // Stop horizontal movement during attack
-        Invoke(nameof(ShootFireBall), .5f);
-        Invoke(nameof(StopAttack2), 1f);
+        // Attack2 is only available if the player has enough mana
+        if (_playerResources.GetMana() > _playerResources.GetAttack2Mana())
+        {
+            _playerController.SetInputLock(true);
+            _playerAudio.Play("attack2");
+            _animator.SetTrigger("attack2");
+            _playerResources.AdjustMana(_playerResources.GetAttack2Mana() * -1);
+            // Stop horizontal movement during attack
+            Invoke(nameof(ShootFireBall), .5f);
+            Invoke(nameof(StopAttack2), 1f);
+        }
     }
     public void ShootFireBall()
     {

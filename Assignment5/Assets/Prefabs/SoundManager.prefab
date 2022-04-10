@@ -46,6 +46,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fireBall: {fileID: 8300000, guid: 12a24f428ad2a594abb55f6af9742baf, type: 3}
   _explosion: {fileID: 8300000, guid: 69c848205d2b1cc4b91b45c2afa61f10, type: 3}
+  _buttonClick: {fileID: 8300000, guid: 41f5151cb7fa737429f9a080da7ef2bc, type: 3}
+  _goblinAttack0: {fileID: 8300000, guid: bc9f0b62dd219cf47bd28d84c57ef493, type: 3}
+  _goblinAttack1: {fileID: 8300000, guid: 17127aa83a09f9c478ddb4849b7478fd, type: 3}
+  _goblinAttack2: {fileID: 8300000, guid: 8e8c365471ec3034baefa2b98fc90094, type: 3}
+  _goblinAttack3: {fileID: 8300000, guid: 36115e006a61b5543811b51dda7f7ac2, type: 3}
+  _goblinHurt0: {fileID: 8300000, guid: 08adebefa9b54d84e941c8b6be64d8c8, type: 3}
+  _goblinHurt1: {fileID: 8300000, guid: 52d3c54bd6163544daf010b021a818bb, type: 3}
+  _goblinHurt2: {fileID: 8300000, guid: bb937c0e43039d042b7659eb68e4d207, type: 3}
+  _goblinDeath: {fileID: 8300000, guid: 040e3ae5298956046966d045fdbe2898, type: 3}
+  _demonAttack0: {fileID: 8300000, guid: e6ea133da2c89554ab2cc97ecac59bbf, type: 3}
+  _demonAttack1: {fileID: 8300000, guid: f35c1675e2d5941479bde84021403eee, type: 3}
+  _demonAttack2: {fileID: 8300000, guid: 9030f89faec3b8e4ea764889505cc656, type: 3}
+  _demonHurt0: {fileID: 8300000, guid: e7f40d93bca44354582992bc28840959, type: 3}
+  _demonHurt1: {fileID: 8300000, guid: 267ff6ad4a9fa074f9de413a6272ce88, type: 3}
+  _demonDeath: {fileID: 8300000, guid: 08e35d80856a2fc41a5a4f2d3240633a, type: 3}
 --- !u!82 &5172419900485576851
 AudioSource:
   m_ObjectHideFlags: 0

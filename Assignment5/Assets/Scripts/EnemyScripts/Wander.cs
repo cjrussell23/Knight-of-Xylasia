@@ -43,6 +43,11 @@ public class Wander : MonoBehaviour
     {
         _currentAngle += Random.Range(0, 360);
         _currentAngle = Mathf.Repeat(_currentAngle, 360);
+        if (_currentAngle > 180)
+        {
+            _currentAngle = 180;
+        }
+        else _currentAngle = 0;
         _endPosition += Vector3FromAngle(_currentAngle);
         if(_endPosition.x < transform.position.x){
             GetComponent<SpriteRenderer>().flipX = true;

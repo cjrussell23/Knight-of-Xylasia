@@ -251,10 +251,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4336206673860332555, guid: 29268366de18c1740ac7cf77517fcc4d, type: 3}
-      propertyPath: _buttonClick
-      value: 
-      objectReference: {fileID: 8300000, guid: 41f5151cb7fa737429f9a080da7ef2bc, type: 3}
     - target: {fileID: 6577771162166941133, guid: 29268366de18c1740ac7cf77517fcc4d, type: 3}
       propertyPath: m_Name
       value: SoundManager
@@ -5614,7 +5610,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: aea0d807b25bea24dafc7f4879b19d90, type: 3}
-    m_FontSize: 33
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
