@@ -32,6 +32,7 @@ Item pickup: https://opengameart.org/content/beep-tone-sound-sfx
 Goblins: https://opengameart.org/content/goblins-sound-pack
 https://opengameart.org/content/monster-or-beast-sounds
 https://opengameart.org/content/monster-sound-effects-2
+https://assetstore.unity.com/packages/2d/characters/monsters-creatures-fantasy-167949
 
 
 ### Features
@@ -62,13 +63,9 @@ Tutorial Level
 Main Game Level
 Boss Level
 
-### Todo
-1. Menu screen -DONE
-2. NPC that introduces the game when loading in -done
-3. Make fruits click to use? - done
-4. Make fruits go into inventory - done
-
 ### Additional features
+- Inventory is usable
+- Items and health/mana stay when moving to level
 - Enemy Combat
 - Boss fight
 - Dialog
