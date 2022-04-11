@@ -42,11 +42,12 @@ public class TutorialManager : MonoBehaviour
     }
     private void Awake()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
-        _soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        
     }
     void Start()
     {
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         _playerController = _player.GetComponent<PlayerController>();
         _playerController.SetInputLock(true);
         _tutorialStep = 1;
