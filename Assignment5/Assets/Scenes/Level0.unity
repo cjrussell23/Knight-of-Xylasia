@@ -754,13 +754,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7520317216130012930}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1639286639}
+        m_TargetAssemblyTypeName: Portal, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6907,11 +6907,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4cdc4824da4a9b45ad6df265900f98a, type: 3}
---- !u!1 &7520317216130012930 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7520317214482481883, guid: c4cdc4824da4a9b45ad6df265900f98a, type: 3}
-  m_PrefabInstance: {fileID: 7520317216130012929}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7659273747050978835
 PrefabInstance:
   m_ObjectHideFlags: 0

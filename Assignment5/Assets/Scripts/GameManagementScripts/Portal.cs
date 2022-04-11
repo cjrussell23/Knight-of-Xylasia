@@ -21,6 +21,7 @@ public class Portal : MonoBehaviour
         {
             player.transform.position = _spawnPoint;
         }
+        player.GetComponent<PlayerController>().SetInputLock(false);
         SoundManager soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         // TODO: Play more epic sound
         // And maybe a loading animation?

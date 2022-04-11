@@ -14,9 +14,10 @@ public class Enemy : MonoBehaviour
     private Coroutine _damageCoroutine;
     private Coroutine _attackSoundCoroutine;
     private EnemySounds _enemySounds;
-    private void Awake()
+    private void Start()
     {
         _healthSlider.maxValue = _startingHitPoints;
+        _healthSlider.value = _startingHitPoints;
         _enemySounds = gameObject.GetComponent<EnemySounds>();
     }
     public IEnumerator DamageEnemy(float damage, float interval)
@@ -59,14 +60,6 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         GetComponent<SpriteRenderer>().color = Color.white;
     }
-    public void ResetEnemy()
-    {
-        _healthSlider.value = _startingHitPoints;
-    }
-    private void OnEnable()
-    {
-        ResetEnemy();
-    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))
@@ -75,7 +68,10 @@ public class Enemy : MonoBehaviour
             if (_damageCoroutine == null)
             {
                 _damageCoroutine = StartCoroutine(player.DamagePlayer(_damageStrength, _damageInterval));
-                _attackSoundCoroutine = StartCoroutine(attackSound(_damageInterval));
+                if(_enemySounds != null)
+                {
+                    _attackSoundCoroutine = StartCoroutine(attackSound(_damageInterval));
+                } 
             }
         }
     }
