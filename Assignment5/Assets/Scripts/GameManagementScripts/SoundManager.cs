@@ -24,9 +24,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _demonHurt0;
     [SerializeField] private AudioClip _demonHurt1;
     [SerializeField] private AudioClip _demonDeath;
-    private void Awake() {
-        DontDestroyOnLoad(gameObject);
-    }
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();

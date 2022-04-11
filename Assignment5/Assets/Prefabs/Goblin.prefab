@@ -206,6 +206,8 @@ MonoBehaviour:
   _wanderSpeed: 1.5
   _directionChangeInterval: 2
   followPlayer: 1
+  _horizontalOnly: 1
+  _wanderDistance: 1
 --- !u!114 &-6858802759051316220
 MonoBehaviour:
   m_ObjectHideFlags: 0

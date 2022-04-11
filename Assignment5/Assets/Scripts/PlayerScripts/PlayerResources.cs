@@ -20,6 +20,8 @@ public class PlayerResources : MonoBehaviour
     private float _damageMultiplier;
     // Player scripts
     private PlayerAudio _playerAudio;
+    private PlayerUI _playerUI;
+    private Inventory _inventory;
     // Components
     private Animator _animator;
     private BoxCollider2D _collider;
@@ -34,6 +36,7 @@ public class PlayerResources : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         // Player scripts
         _playerAudio = GetComponent<PlayerAudio>();
+        _playerUI = GameObject.Find("PlayerUI").GetComponent<PlayerUI>();
         // Damage Modifiers
         _damageMultiplier = DEFAULTDAMAGEMULTIPLIER;
         // Mana
@@ -146,6 +149,7 @@ public class PlayerResources : MonoBehaviour
     {
         _playerAudio.Play("death");
         _animator.SetBool("alive", false);
+        _playerUI.GameOverScreen(true);
         _collider.enabled = false;
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
         Invoke(nameof(StopTime), 0.75f * 2);

@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    private static Inventory _instance;
     [SerializeField] private GameObject _slotPrefab;
     private const int _numSlots = 8;
     private Image[] _itemImages = new Image[_numSlots];
     private ItemData[] _items = new ItemData[_numSlots];
     private GameObject[] _slots = new GameObject[_numSlots];
+    private void Awake() {
+        _instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
     public void Start()
     {
         CreateSlots();

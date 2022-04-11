@@ -23,7 +23,7 @@ public class Wander : MonoBehaviour
         _anim = GetComponent<Animator>();
         _currentSpeed = _wanderSpeed;
         _rb = GetComponent<Rigidbody2D>();
-        StartCoroutine(WanderRoutine());
+        //StartCoroutine(WanderRoutine());
         _circleCollider = GetComponent<CircleCollider2D>();
     }
     public IEnumerator WanderRoutine()
@@ -49,12 +49,6 @@ public class Wander : MonoBehaviour
         }
         else _currentAngle = 0;
         _endPosition += Vector3FromAngle(_currentAngle);
-        if(_endPosition.x < transform.position.x){
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
-        else {
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
     }
     Vector3 Vector3FromAngle(float inputAngleDegrees)
     {
@@ -63,6 +57,12 @@ public class Wander : MonoBehaviour
     }
     public IEnumerator Move(Rigidbody2D rbToMove, float speed)
     {
+        if(_endPosition.x < transform.position.x){
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
         float remainingDistance = (transform.position - _endPosition).sqrMagnitude;
         while (remainingDistance > float.Epsilon)
         {

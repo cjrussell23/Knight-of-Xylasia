@@ -32,6 +32,7 @@ public class PlayerActions : MonoBehaviour
     private PlayerController _playerController;
     private void Start()
     {
+        Time.timeScale = 1;
         // Get Components
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();

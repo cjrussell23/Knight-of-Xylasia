@@ -9,4 +9,12 @@ public class MenuMove : MonoBehaviour
     {
         transform.position = new Vector3(transform.position.x + _speed, transform.position.y, transform.position.z);
     }
+    // This could be in its own script
+    // Here for time savings
+    private void Start() {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if(player != null) {
+            Destroy(player);
+        }
+    }
 }
