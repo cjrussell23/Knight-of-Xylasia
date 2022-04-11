@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e8aa65fc0447a4792f4a182445ec8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyName: Demon
+  _enemyName: demon
 --- !u!114 &3173869825702043373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,8 +219,6 @@ MonoBehaviour:
   _wanderSpeed: 0.8
   _directionChangeInterval: 3
   followPlayer: 1
-  _horizontalOnly: 1
-  _wanderDistance: 1
 --- !u!1 &3173869826028330197
 GameObject:
   m_ObjectHideFlags: 0
