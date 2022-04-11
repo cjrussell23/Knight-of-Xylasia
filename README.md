@@ -64,6 +64,7 @@ Main Game Level
 Boss Level
 
 ### Additional features
+- Enemies Drop Items
 - Inventory is usable
 - Items and health/mana stay when moving to level
 - Enemy Combat
@@ -72,3 +73,6 @@ Boss Level
 - Melee attacks
 - Power ups
 - Tutorial
+
+### Side note
+There was so much more I wanted to add, but I ran out of time. I ran out of time to really design the main level. Also the boss fight is a little buggy with the attacks. There is no win screen. I had also planned to add flying enemies, which is why the enemy code allows for enemies to move in any direction.
