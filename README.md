@@ -14,7 +14,7 @@
 ### Boss Level
 ![boss](https://user-images.githubusercontent.com/81775200/178121807-86d4cc3e-1f58-4f15-806c-0dc961077193.gif)
 
-### Sources
+## Sources
 
 https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360
 https://assetstore.unity.com/packages/2d/environments/platform-tile-pack-204101
@@ -33,19 +33,19 @@ https://opengameart.org/content/monster-sound-effects-2
 https://assetstore.unity.com/packages/2d/characters/monsters-creatures-fantasy-167949
 
 
-### Features
-#### Player attacks
+## Features
+### Player attacks
 attack0 - basic melee attack - no mana cost - stops player movement
 attack1 - Jab attack - cost mana - moves player forward
 attack2 - Magic fireball - cost mana - stops player movement
 
-#### Jumping
+### Jumping
 Player gets two jumps after touching the ground. The first one is free, the second one cost mana and jumps higher
 
-#### Sprint
+### Sprint
 The player can sprint, it costs mana and moves the player fast, they have to be on the ground.
 
-#### Fruits 
+### Fruits 
 Apple - Gives more health - rarity 2
 Bananna - Gives mana - rarity 1
 Kiwi - Gives damage buff - rarity 3
@@ -55,13 +55,13 @@ Pineapple - Gives permenant mana - rarity 3
 Strawberry - Gives health - rarity 1
 Cherries - Permenantly increases mana regeneration - rarity 3
 
-### Levels / Scenes
+## Levels / Scenes
 Main menu
 Tutorial Level
 Main Game Level
 Boss Level
 
-### Additional features
+## Additional features
 - Enemies Drop Items
 - Inventory is usable
 - Items and health/mana stay when moving to level
