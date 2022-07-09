@@ -1,4 +1,19 @@
 # Knight of Xylasia
+
+## Gameplay
+
+### Menu Screen
+![Menu](https://user-images.githubusercontent.com/81775200/178121814-c94a2ff2-9bf7-44cc-a75a-bdaa24383e6f.gif)
+
+### Tutorial Level
+![Tutorial](https://user-images.githubusercontent.com/81775200/178121817-63c0be7c-fd68-4e11-8691-1f2854bdf749.gif)
+
+### First Level
+![lvl1](https://user-images.githubusercontent.com/81775200/178121812-c8768537-4968-44ce-a18d-6508d1f0f1a9.gif)
+
+### Boss Level
+![boss](https://user-images.githubusercontent.com/81775200/178121807-86d4cc3e-1f58-4f15-806c-0dc961077193.gif)
+
 ### Sources
 
 https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360
