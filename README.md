@@ -24,12 +24,19 @@ https://assetstore.unity.com/packages/2d/characters/knight-sprite-sheet-free-938
 https://freesound.org/people/Alexamin/sounds/547126/
 https://assetstore.unity.com/packages/audio/sound-fx/voices/voices-essentials-214441#content
 https://freesound.org/people/Timbre/sounds/131263/
+
 Font: https://www.1001fonts.com/future-timesplitters-font.html
+
 Menu Music: https://opengameart.org/content/loading-screen-loop
+
 Start Button: https://opengameart.org/content/botton-sound-pack
+
 Main music theme: https://opengameart.org/content/grassy-world-overture-8bitorchestral
+
 Item pickup: https://opengameart.org/content/beep-tone-sound-sfx
+
 Goblins: https://opengameart.org/content/goblins-sound-pack
+
 https://opengameart.org/content/monster-or-beast-sounds
 https://opengameart.org/content/monster-sound-effects-2
 https://assetstore.unity.com/packages/2d/characters/monsters-creatures-fantasy-167949
