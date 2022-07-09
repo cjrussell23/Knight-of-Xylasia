@@ -1,5 +1,7 @@
 # Knight of Xylasia
 
+This is a 2D rpg platformer I made using Unity. Still needs lots of work on the level design, but I have completed most of the main features.
+
 ## Gameplay
 
 ### Menu Screen
